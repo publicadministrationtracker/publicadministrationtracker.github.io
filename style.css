@@ -120,6 +120,11 @@ main {
   text-decoration: none;
 }
 
+.card-link:hover .card {
+  transform: translateY(-3px);
+  transition: 0.2s ease;
+}
+
 .badge {
   display: inline-block;
   border-radius: 999px;
