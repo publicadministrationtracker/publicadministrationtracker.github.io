@@ -1,20 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Immigration | Public Administration Tracker</title>
-  <meta name="description" content="Public Administration Tracker claim group page for Immigration.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="wrap">
       <div class="eyebrow">Claim Group</div>
       <h1>Immigration</h1>
-      <p class="hero-text">This page tracks immigration enforcement, asylum policy, detention, border strategy, refugee policy, and related legal challenges.</p>
+      <p class="hero-text">A working preview of claims involving border policy, asylum rules, detention, enforcement, and immigration-related legal challenges.</p>
       <div class="buttons">
-        <a class="button primary" href="#core-claims">View core claims</a>
+        <a class="button primary" href="#claims">View selected claims</a>
         <a class="button secondary" href="index.html">Back to home</a>
       </div>
     </div>
@@ -22,84 +21,84 @@
 
   <main>
     <div class="wrap">
-      <h2 class="section-title">How to read this page</h2>
-      <p class="section-subtitle">Claims are grouped by topic and ranked using the project’s weighted scoring model. The score reflects impact, evidence strength, and policy directness.</p>
+      <section id="claims">
+        <h2 class="section-title">Selected Immigration Claims</h2>
+        <p class="section-subtitle">These claims focus on enforcement, humanitarian consequences, legal conflict, and border capacity.</p>
 
-      <div class="grid">
-        <div class="card">
-          <span class="badge negative">Negative</span>
-          <h3>Harms, failures, or institutional strain</h3>
-          <p>These claims describe policy harms, risks, failures, legal conflicts, or institutional stress.</p>
-        </div>
-        <div class="card">
-          <span class="badge positive">Positive</span>
-          <h3>Benefits or strengthened capacity</h3>
-          <p>These claims describe accomplishments, policy gains, added capacity, or improved outcomes.</p>
-        </div>
-        <div class="card">
-          <span class="badge mixed">Mixed</span>
-          <h3>Tradeoffs or contested outcomes</h3>
-          <p>These claims may involve real benefits alongside costs, limits, or unresolved interpretation.</p>
-        </div>
-      </div>
+        <div class="claim-columns">
+          <div class="card claim-card">
+            <span class="badge positive">Positive</span>
+            <h3>Selected positive claims</h3>
+            <ul>
+              <li>Border staffing prioritized.</li>
+              <li>Surveillance tools expanded.</li>
+              <li>E-Verify promoted.</li>
+              <li>Merit immigration promoted.</li>
+              <li>Operational control prioritized.</li>
+            </ul>
+          </div>
 
-      <h2 class="section-title" id="core-claims">Core claims</h2>
-      <p class="section-subtitle">These are selected from the highest-scoring claims in the workbook.</p>
+          <div class="card claim-card">
+            <span class="badge negative">Negative</span>
+            <h3>Selected negative claims</h3>
+            <ul>
+              <li>Thousands of children separated from parents.</li>
+              <li>Travel ban affected multiple nations.</li>
+              <li>Children separated from parents.</li>
+              <li>DACA termination effort blocked.</li>
+              <li>Remain in Mexico policy created.</li>
+              <li>Immigration court-order compliance failures documented.</li>
+            </ul>
+          </div>
 
-      <div class="claim-columns">
-        <div class="card claim-card">
-          <span class="badge negative">Core negative claims</span>
-          <h3>Highest-scoring concerns</h3>
+          <div class="card claim-card">
+            <span class="badge mixed">Mixed</span>
+            <h3>Mixed or contested claims</h3>
+            <ul>
+              <li>Border barriers expanded.</li>
+              <li>Remain in Mexico implemented.</li>
+              <li>Interior enforcement increased.</li>
+              <li>Refugee ceiling lowered.</li>
+              <li>Sanctuary cities pressured.</li>
+              <li>Detention capacity expanded.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Additional Immigration Claims in the Dataset</h2>
+        <p class="section-subtitle">This sample shows additional significant immigration claims being reviewed.</p>
+
+        <div class="card list-card">
           <ul>
-            <li><strong>TRUMP-006</strong> — Thousands of children separated from parents <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-101</strong> — Travel ban affected multiple nations <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-102</strong> — Children separated from parents <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-109</strong> — DACA termination effort blocked <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-115</strong> — Remain in Mexico policy created <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-543</strong> — Immigration court-order compliance failures documented <span class="badge mixed">Score 4.75</span></li>
-            <li><strong>TRUMP-545</strong> — Detention numbers increased sharply <span class="badge mixed">Score 4.65</span></li>
-            <li><strong>TRUMP-016</strong> — Refugee intake sharply decreased <span class="badge mixed">Score 4.6</span></li>
+              <li>Detention numbers increased sharply.</li>
+              <li>Refugee intake sharply decreased.</li>
+              <li>Restrictions limited asylum access.</li>
+              <li>Eligibility for residency tightened.</li>
+              <li>Public health authority used for immigration control.</li>
+              <li>Detention expansion increased large-scale facility reliance.</li>
+              <li>Detention capacity increased.</li>
+              <li>Temporary immigration protections reduced.</li>
+              <li>Immigration enforcement required expanded public spending.</li>
+              <li>Surveillance systems increased.</li>
           </ul>
         </div>
+      </section>
 
-        <div class="card claim-card">
-          <span class="badge positive">Positive / mixed claims</span>
-          <h3>Balancing claims</h3>
-          <ul>
-            <li><strong>Trump-849</strong> — Border staffing prioritized <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>Trump-847</strong> — Surveillance tools expanded <span class="badge mixed">Score 4.2</span></li>
-            <li><strong>Trump-830</strong> — E-Verify promoted <span class="badge mixed">Score 3.85</span></li>
-            <li><strong>Trump-715</strong> — Merit immigration promoted <span class="badge mixed">Score 3.6</span></li>
-            <li><strong>Trump-926</strong> — Operational control prioritized <span class="badge mixed">Score 3.6</span></li>
-          </ul>
+      <section>
+        <h2 class="section-title">How to Read This Project</h2>
+        <div class="note">
+          Immigration contains legal, humanitarian, fiscal, and enforcement dimensions. Many positive or mixed claims describe capacity or enforcement expansion rather than broad consensus outcomes. Claims are grouped by policy area and impact direction. Many claims are still under review and will later include source links, confidence levels, cross-references, and notes about competing interpretations.
         </div>
-      </div>
 
-      <div class="card list-card">
-        <span class="badge mixed">Additional significant claims</span>
-        <h3>Other claims to consider</h3>
-        <ul>
-            <li><strong>TRUMP-104</strong> — Restrictions limited asylum access <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-523</strong> — Detention expansion increased large-scale facility reliance <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-107</strong> — Eligibility for residency tightened <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-125</strong> — Public health authority used for immigration control <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-111</strong> — Detention capacity increased <span class="badge mixed">Score 4.25</span></li>
-            <li><strong>TRUMP-213</strong> — Immigration enforcement required increased public spending <span class="badge mixed">Score 4.2</span></li>
-        </ul>
-      </div>
-
-      <div class="note">
-        <strong>Interpretation:</strong> Immigration contains strong legal, humanitarian, fiscal, and enforcement dimensions. Many positive or mixed claims in this category describe capacity or enforcement expansion rather than broad consensus outcomes.
-      </div>
-
-      <a class="back-link" href="index.html">← Back to home</a>
+        <a class="back-link" href="index.html">← Navigate back to home</a>
+      </section>
     </div>
   </main>
 
   <footer>
-    <div class="wrap">
-      Public Administration Tracker · Under construction
-    </div>
+    <div class="wrap">Public Administration Tracker · Immigration</div>
   </footer>
 </body>
 </html>

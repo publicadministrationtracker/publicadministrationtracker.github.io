@@ -1,20 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Health &amp; COVID-19 | Public Administration Tracker</title>
-  <meta name="description" content="Public Administration Tracker claim group page for Health &amp; COVID-19.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="wrap">
       <div class="eyebrow">Claim Group</div>
       <h1>Health &amp; COVID-19</h1>
-      <p class="hero-text">This page combines health policy and COVID-19 response claims, including vaccine development, pandemic coordination, coverage protections, and healthcare access.</p>
+      <p class="hero-text">A working preview of claims involving healthcare policy, COVID-19 response, coverage protections, and vaccine development.</p>
       <div class="buttons">
-        <a class="button primary" href="#core-claims">View core claims</a>
+        <a class="button primary" href="#claims">View selected claims</a>
         <a class="button secondary" href="index.html">Back to home</a>
       </div>
     </div>
@@ -22,87 +21,83 @@
 
   <main>
     <div class="wrap">
-      <h2 class="section-title">How to read this page</h2>
-      <p class="section-subtitle">Claims are grouped by topic and ranked using the project’s weighted scoring model. The score reflects impact, evidence strength, and policy directness.</p>
+      <section id="claims">
+        <h2 class="section-title">Selected Health Claims</h2>
+        <p class="section-subtitle">This category includes one of the clearest mixtures of positive and negative claims in the dataset.</p>
 
-      <div class="grid">
-        <div class="card">
-          <span class="badge negative">Negative</span>
-          <h3>Harms, failures, or institutional strain</h3>
-          <p>These claims describe policy harms, risks, failures, legal conflicts, or institutional stress.</p>
-        </div>
-        <div class="card">
-          <span class="badge positive">Positive</span>
-          <h3>Benefits or strengthened capacity</h3>
-          <p>These claims describe accomplishments, policy gains, added capacity, or improved outcomes.</p>
-        </div>
-        <div class="card">
-          <span class="badge mixed">Mixed</span>
-          <h3>Tradeoffs or contested outcomes</h3>
-          <p>These claims may involve real benefits alongside costs, limits, or unresolved interpretation.</p>
-        </div>
-      </div>
+        <div class="claim-columns">
+          <div class="card claim-card">
+            <span class="badge positive">Positive</span>
+            <h3>Selected positive claims</h3>
+            <ul>
+              <li>Vaccine development accelerated.</li>
+              <li>Vaccines authorized in 2020.</li>
+              <li>Manufacturing began early.</li>
+              <li>Vaccine doses pre-purchased.</li>
+              <li>mRNA technology advanced.</li>
+              <li>Vaccine logistics built.</li>
+            </ul>
+          </div>
 
-      <h2 class="section-title" id="core-claims">Core claims</h2>
-      <p class="section-subtitle">These are selected from the highest-scoring claims in the workbook.</p>
+          <div class="card claim-card">
+            <span class="badge negative">Negative</span>
+            <h3>Selected negative claims</h3>
+            <ul>
+              <li>Testing capacity lagged early.</li>
+              <li>Protective equipment shortages endangered workers.</li>
+              <li>Health coverage protections weakened.</li>
+              <li>Deaths reached catastrophic levels.</li>
+              <li>Long-term care residents suffered severe losses.</li>
+              <li>Pandemic coordination weaknesses documented.</li>
+            </ul>
+          </div>
 
-      <div class="claim-columns">
-        <div class="card claim-card">
-          <span class="badge negative">Core negative claims</span>
-          <h3>Highest-scoring concerns</h3>
+          <div class="card claim-card">
+            <span class="badge mixed">Mixed</span>
+            <h3>Mixed or contested claims</h3>
+            <ul>
+              <li>Testing scaled through private labs.</li>
+              <li>Short-term plans expanded.</li>
+              <li>Association plan access promoted.</li>
+              <li>Work waivers approved.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Additional Health Claims in the Dataset</h2>
+        <p class="section-subtitle">This sample shows additional significant healthcare and pandemic-response claims under review.</p>
+
+        <div class="card list-card">
           <ul>
-            <li><strong>TRUMP-277</strong> — Testing capacity lagged early <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-278</strong> — Protective equipment shortages endangered workers <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-122</strong> — Health coverage protections weakened <span class="badge mixed">Score 4.75</span></li>
-            <li><strong>TRUMP-297</strong> — Deaths reached catastrophic levels <span class="badge mixed">Score 4.75</span></li>
-            <li><strong>TRUMP-298</strong> — Long-term care residents suffered severe losses <span class="badge mixed">Score 4.75</span></li>
-            <li><strong>TRUMP-352</strong> — Health care protections reduced <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-288</strong> — Health coverage protections were put at risk <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-549</strong> — Pandemic coordination weaknesses documented <span class="badge mixed">Score 4.6</span></li>
+              <li>Health care nondiscrimination protections narrowed.</li>
+              <li>Enrollment assistance cut.</li>
+              <li>Medicaid eligibility restrictions promoted.</li>
+              <li>Family planning network disrupted.</li>
+              <li>Hospital price transparency rules finalized.</li>
+              <li>Telehealth access expanded.</li>
+              <li>PPE production scaled.</li>
+              <li>Testing strategy problems documented.</li>
+              <li>Stockpile weaknesses documented.</li>
+              <li>Health coverage losses concentrated among lower-income households.</li>
           </ul>
         </div>
+      </section>
 
-        <div class="card claim-card">
-          <span class="badge positive">Positive / mixed claims</span>
-          <h3>Balancing claims</h3>
-          <ul>
-            <li><strong>Trump-636</strong> — Vaccine development accelerated <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>Trump-637</strong> — Vaccines authorized in 2020 <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>Trump-763</strong> — Manufacturing began early <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>Trump-764</strong> — Vaccine doses pre-purchased <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>Trump-823</strong> — mRNA tech advanced <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>Trump-824</strong> — Vaccine logistics built <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-282</strong> — Vaccine program supported rapid development <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>Trump-643</strong> — Telehealth access expanded <span class="badge mixed">Score 4.6</span></li>
-          </ul>
+      <section>
+        <h2 class="section-title">How to Read This Project</h2>
+        <div class="note">
+          Health shows the project’s balanced framework clearly: it includes some of the strongest positive claims in the dataset and some of the highest-scoring failures. Claims are grouped by policy area and impact direction. Many claims are still under review and will later include source links, confidence levels, cross-references, and notes about competing interpretations.
         </div>
-      </div>
 
-      <div class="card list-card">
-        <span class="badge mixed">Additional significant claims</span>
-        <h3>Other claims to consider</h3>
-        <ul>
-            <li><strong>TRUMP-279</strong> — States faced inconsistent federal support <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-550</strong> — Testing strategy problems documented <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-551</strong> — PPE supply failures persisted <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-562</strong> — Stockpile weaknesses documented <span class="badge mixed">Score 4.6</span></li>
-            <li><strong>TRUMP-300</strong> — Health governance showed recurring harms <span class="badge mixed">Score 4.4</span></li>
-            <li><strong>TRUMP-431</strong> — Health coverage losses concentrated among lower-income households <span class="badge mixed">Score 4.35</span></li>
-        </ul>
-      </div>
-
-      <div class="note">
-        <strong>Interpretation:</strong> Health shows the project’s balanced framework clearly: the same category contains some of the strongest positive claims in the dataset and some of the highest-scoring failures.
-      </div>
-
-      <a class="back-link" href="index.html">← Back to home</a>
+        <a class="back-link" href="index.html">← Navigate back to home</a>
+      </section>
     </div>
   </main>
 
   <footer>
-    <div class="wrap">
-      Public Administration Tracker · Under construction
-    </div>
+    <div class="wrap">Public Administration Tracker · Health &amp; COVID-19</div>
   </footer>
 </body>
 </html>
