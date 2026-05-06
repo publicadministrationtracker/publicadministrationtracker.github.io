@@ -1,20 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Democracy | Public Administration Tracker</title>
-  <meta name="description" content="Public Administration Tracker claim group page for Democracy.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <div class="wrap">
       <div class="eyebrow">Claim Group</div>
       <h1>Democracy</h1>
-      <p class="hero-text">This page focuses on elections, democratic norms, transfer of power, public trust, and institutional stability.</p>
+      <p class="hero-text">A working preview of claims involving elections, democratic norms, institutional trust, and the transfer of power.</p>
       <div class="buttons">
-        <a class="button primary" href="#core-claims">View core claims</a>
+        <a class="button primary" href="#claims">View selected claims</a>
         <a class="button secondary" href="index.html">Back to home</a>
       </div>
     </div>
@@ -22,81 +21,75 @@
 
   <main>
     <div class="wrap">
-      <h2 class="section-title">How to read this page</h2>
-      <p class="section-subtitle">Claims are grouped by topic and ranked using the project’s weighted scoring model. The score reflects impact, evidence strength, and policy directness.</p>
+      <section id="claims">
+        <h2 class="section-title">Selected Democracy Claims</h2>
+        <p class="section-subtitle">These claims focus on election legitimacy, certification, public trust, and democratic institutions.</p>
 
-      <div class="grid">
-        <div class="card">
-          <span class="badge negative">Negative</span>
-          <h3>Harms, failures, or institutional strain</h3>
-          <p>These claims describe policy harms, risks, failures, legal conflicts, or institutional stress.</p>
-        </div>
-        <div class="card">
-          <span class="badge positive">Positive</span>
-          <h3>Benefits or strengthened capacity</h3>
-          <p>These claims describe accomplishments, policy gains, added capacity, or improved outcomes.</p>
-        </div>
-        <div class="card">
-          <span class="badge mixed">Mixed</span>
-          <h3>Tradeoffs or contested outcomes</h3>
-          <p>These claims may involve real benefits alongside costs, limits, or unresolved interpretation.</p>
-        </div>
-      </div>
+        <div class="claim-columns">
+          <div class="card claim-card">
+            <span class="badge positive">Positive</span>
+            <h3>Selected positive claims</h3>
+            <ul>
+              <li>Election security was funded.</li>
+            </ul>
+          </div>
 
-      <h2 class="section-title" id="core-claims">Core claims</h2>
-      <p class="section-subtitle">These are selected from the highest-scoring claims in the workbook.</p>
+          <div class="card claim-card">
+            <span class="badge negative">Negative</span>
+            <h3>Selected negative claims</h3>
+            <ul>
+              <li>First president to refuse concession after certified loss.</li>
+              <li>Direct pressure applied to change certified vote totals.</li>
+              <li>Concession norm broken.</li>
+              <li>State election pressure documented.</li>
+              <li>Elector substitution scheme developed.</li>
+              <li>Vice presidential role targeted.</li>
+            </ul>
+          </div>
 
-      <div class="claim-columns">
-        <div class="card claim-card">
-          <span class="badge negative">Core negative claims</span>
-          <h3>Highest-scoring concerns</h3>
+          <div class="card claim-card">
+            <span class="badge mixed">Mixed</span>
+            <h3>Mixed or contested claims</h3>
+            <ul>
+              <li>Electoral system imbalance highlighted.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Additional Democracy Claims in the Dataset</h2>
+        <p class="section-subtitle">This sample shows additional high-scoring democracy-related claims under review.</p>
+
+        <div class="card list-card">
           <ul>
-            <li><strong>TRUMP-002</strong> — First president to refuse concession after certified loss <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-026</strong> — Direct pressure applied to change certified vote totals <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-476</strong> — Concession norm broken <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-479</strong> — State election pressure documented <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-480</strong> — Elector substitution scheme developed <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-482</strong> — Vice presidential role targeted <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-258</strong> — Two impeachments marked historic outlier <span class="badge mixed">Score 5.0</span></li>
-            <li><strong>TRUMP-014</strong> — Violence disrupted certification of election <span class="badge mixed">Score 4.75</span></li>
+              <li>Two impeachments marked historic outlier.</li>
+              <li>Violence disrupted certification of election.</li>
+              <li>Public claims contradicted official findings.</li>
+              <li>Institutional trust weakened.</li>
+              <li>Election legitimacy challenged repeatedly.</li>
+              <li>Adverse outcomes delegitimized.</li>
+              <li>Election workers endangered.</li>
+              <li>Institutions repeatedly tested.</li>
+              <li>Capitol attack generated public costs.</li>
+              <li>False fraud claims created costly fallout.</li>
           </ul>
         </div>
+      </section>
 
-        <div class="card claim-card">
-          <span class="badge positive">Positive / mixed claims</span>
-          <h3>Balancing claims</h3>
-          <ul>
-            <li><strong>Trump-897</strong> — Election security funded <span class="badge mixed">Score 3.6</span></li>
-            <li><strong>TRUMP-396</strong> — Electoral system imbalance highlighted <span class="badge mixed">Score 3.45</span></li>
-          </ul>
+      <section>
+        <h2 class="section-title">How to Read This Project</h2>
+        <div class="note">
+          The Democracy group is dominated by high-scoring claims related to election legitimacy, certification, pressure on officials, and the transfer of power. Claims are grouped by policy area and impact direction. Many claims are still under review and will later include source links, confidence levels, cross-references, and notes about competing interpretations.
         </div>
-      </div>
 
-      <div class="card list-card">
-        <span class="badge mixed">Additional significant claims</span>
-        <h3>Other claims to consider</h3>
-        <ul>
-            <li><strong>TRUMP-397</strong> — Election legitimacy challenged repeatedly <span class="badge mixed">Score 4.75</span></li>
-            <li><strong>TRUMP-495</strong> — Adverse outcomes delegitimized <span class="badge mixed">Score 4.75</span></li>
-            <li><strong>TRUMP-400</strong> — Governance relied on confrontation strategy <span class="badge mixed">Score 4.4</span></li>
-            <li><strong>TRUMP-483</strong> — Election workers endangered <span class="badge mixed">Score 4.4</span></li>
-            <li><strong>TRUMP-500</strong> — Institutions repeatedly tested <span class="badge mixed">Score 4.4</span></li>
-            <li><strong>TRUMP-218</strong> — Capitol attack generated public costs <span class="badge mixed">Score 4.35</span></li>
-        </ul>
-      </div>
-
-      <div class="note">
-        <strong>Interpretation:</strong> The Democracy page is largely negative because the highest-scoring claims center on election legitimacy, certification, pressure on officials, and the transfer of power.
-      </div>
-
-      <a class="back-link" href="index.html">← Back to home</a>
+        <a class="back-link" href="index.html">← Navigate back to home</a>
+      </section>
     </div>
   </main>
 
   <footer>
-    <div class="wrap">
-      Public Administration Tracker · Under construction
-    </div>
+    <div class="wrap">Public Administration Tracker · Democracy</div>
   </footer>
 </body>
 </html>
