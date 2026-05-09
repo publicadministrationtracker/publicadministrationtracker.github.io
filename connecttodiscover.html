@@ -376,6 +376,79 @@
       margin: 0;
     }
 
+    label {
+      display: grid;
+      gap: 7px;
+      font-weight: 750;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 13px;
+      font: inherit;
+      color: var(--ink);
+      background: #fffdf8;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 3px solid rgba(49, 92, 155, 0.18);
+      border-color: var(--blue);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    fieldset {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      margin: 10px 0 16px;
+      background: rgba(246, 243, 237, 0.55);
+    }
+
+    legend {
+      font-weight: 850;
+      color: var(--blue-dark);
+      padding: 0 8px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 650;
+      color: var(--muted);
+      margin: 10px 0;
+    }
+
+    .checkbox input {
+      width: auto;
+    }
+
+    .form-intro {
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin: 0 0 22px;
+      max-width: 820px;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 0 0 18px;
+    }
+
     footer {
       padding: 40px 0 28px;
       color: var(--muted);
@@ -388,7 +461,8 @@
       .hero,
       .starter-box,
       .grid,
-      .grid.two {
+      .grid.two,
+      .form-grid {
         grid-template-columns: 1fr;
       }
 
@@ -424,6 +498,7 @@
         <a href="#games">Games</a>
         <a href="#guide">Connection Guide</a>
         <a href="#starter">Starter Kit</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -609,6 +684,40 @@
         </div>
       </section>
 
+      <section id="faq">
+        <div class="section-heading">
+          <span class="tag">FAQ</span>
+          <h2>Questions people may ask first.</h2>
+          <p>This project is still forming. These answers are meant to make the idea easier to understand, join, test, and improve.</p>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>What do you mean by “orientation”?</h3>
+            <p>Orientation means helping people understand where they are in a civic issue: what happened, why it matters, who is affected, what different people see differently, what evidence exists, and what meaningful next steps might be possible. It is not about forcing agreement. It is about helping people move from reaction toward context, discovery, and constructive participation.</p>
+          </article>
+          <article class="card">
+            <h3>How can I get more involved?</h3>
+            <p>The easiest next step is to join the interest list, test a small gathering idea, or help review early tools. A lightweight form can collect your name, location, interests, and whether you want to host, attend, advise, or simply follow along.</p>
+          </article>
+          <article class="card">
+            <h3>Our small group already does something like this. Can we connect?</h3>
+            <p>Yes. One goal is to find and learn from people already doing civic connection, bridge-building, deliberation, local journalism, community dialogue, and issue-discovery work. A form can help groups share what they are doing, where they are located, and what kinds of collaboration or resource-sharing would be useful.</p>
+          </article>
+          <article class="card">
+            <h3>Can I leave feedback?</h3>
+            <p>Yes. Feedback is part of the early design process. A simple feedback form can ask what feels promising, what feels unclear, what feels risky, and what tools would make this more useful locally.</p>
+          </article>
+          <article class="card">
+            <h3>Is anyone already doing Civic Discovery?</h3>
+            <p>Pieces of this idea already exist in many places: local dialogue groups, deliberative democracy projects, bridge-building organizations, participatory budgeting efforts, civic-tech experiments, community journalism projects, and neighborhood-level organizing. This project aims to learn from those efforts and help connect them into practical, repeatable civic discovery tools.</p>
+          </article>
+          <article class="card">
+            <h3>How can we show where this is already happening?</h3>
+            <p>A future resource map could show local groups, gathering hosts, civic dialogue projects, community journalism partners, and examples of civic discovery in action. The first version could be simple: a directory or map built from submitted forms.</p>
+          </article>
+        </div>
+      </section>
+
       <section id="starter">
         <div class="section-heading">
           <span class="tag">Local Starter Kit</span>
@@ -629,6 +738,81 @@
               <strong>5.</strong> Invite people to help shape the next gathering</p>
           </div>
         </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-heading">
+          <span class="tag">Get Involved</span>
+          <h2>Help shape Civic Discovery.</h2>
+          <p>This project is still forming. Use this form to share interest, feedback, local examples, or a group doing related work. To protect the project organizer’s privacy, messages can route through a form service rather than publishing a personal email address.</p>
+        </div>
+
+        <form class="card" action="https://formspree.io/f/xaqvppjg" method="POST">
+          <input type="hidden" name="project" value="Connect to Discover / Civic Discovery" />
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <p class="form-intro">This project is still early and exploratory. We’re looking for thoughtful, curious, local-minded people who want to help imagine healthier ways for communities to connect, explore issues, and stay human during disagreement.</p>
+
+          <div class="form-grid">
+            <label>
+              Your name, nickname, or group
+              <input type="text" name="name" placeholder="Name, nickname, organization, or leave blank" />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" placeholder="name@example.com" />
+            </label>
+          </div>
+
+          <label>
+            Where are you connecting from?
+            <input type="text" name="location" placeholder="City, neighborhood, town, region, or prefer not to say" />
+          </label>
+
+          <label>
+            What brought you here?
+            <select name="reason">
+              <option value="curious">I’m curious about Civic Discovery</option>
+              <option value="attend">I’d love to attend something like this</option>
+              <option value="host">I may want to host a gathering</option>
+              <option value="existing-group">My group already does similar work</option>
+              <option value="ideas-feedback">I have ideas or feedback</option>
+              <option value="related-projects">I know of related projects or organizations</option>
+              <option value="follow-along">I just want to follow along and see where this goes</option>
+            </select>
+          </label>
+
+          <label>
+            Anything you’d like to share?
+            <textarea name="message" rows="7" placeholder="What resonates with you here? What concerns or excites you? Have you experienced meaningful civic connection somewhere already? What kinds of gatherings, conversations, or community experiences feel healthy and engaging to you?"></textarea>
+          </label>
+
+          <fieldset>
+            <legend>I’d be interested in:</legend>
+            <label class="checkbox"><input type="checkbox" name="interests" value="attending" /> attending a Civic Discovery gathering</label>
+            <label class="checkbox"><input type="checkbox" name="interests" value="hosting" /> hosting something locally</label>
+            <label class="checkbox"><input type="checkbox" name="interests" value="testing-games" /> testing games or activities</label>
+            <label class="checkbox"><input type="checkbox" name="interests" value="connection-guide" /> helping shape the connection guide</label>
+            <label class="checkbox"><input type="checkbox" name="interests" value="local-project" /> sharing a local group/project</label>
+            <label class="checkbox"><input type="checkbox" name="interests" value="big-ideas" /> helping think through the big ideas</label>
+            <label class="checkbox"><input type="checkbox" name="interests" value="stay-in-loop" /> simply staying in the loop</label>
+          </fieldset>
+
+          <label>
+            Lastly, what gives you hope about civic life?
+            <textarea name="hope" rows="4" placeholder="A local experience, a conversation, a community effort, a person, a small moment — anything that reminds you people can still connect constructively."></textarea>
+          </label>
+
+          <label>
+            Any other note to share before you send?
+            <textarea name="final_note" rows="4" placeholder="Optional: anything else you’d like us to know."></textarea>
+          </label>
+
+          <p class="form-note">Email is for direct messaging only in response to your input. Your email will not be displayed publicly from this page.</p>
+
+          <button class="button primary" type="submit">Share your thoughts</button>
+        </form>
       </section>
 
       <section id="representation-gaps">
@@ -655,7 +839,7 @@
     </main>
 
     <footer>
-      <p><strong>Connect to Discover</strong> is an early Civic Discovery concept page. It can begin as a project space within Public Administration Tracker and grow into its own resource center over time.</p>
+      <p><strong>Connect to Discover</strong> is an early Civic Discovery concept page. It began as a project space within Public Administration Tracker and may grow into its own resource center over time.</p>
     </footer>
   </div>
 </body>
