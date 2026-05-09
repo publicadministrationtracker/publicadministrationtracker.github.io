@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect to Discover | Civic Discovery</title>
+  <meta name="description" content="Connect to Discover is an emerging civic discovery project for rebuilding civic connection through curiosity, conversation, and community." />
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5f6b7a;
+      --soft: #f6f3ed;
+      --paper: #fffaf1;
+      --card: #ffffff;
+      --line: #e5dfd2;
+      --blue: #315c9b;
+      --blue-dark: #213f70;
+      --gold: #d69f2b;
+      --green: #477765;
+      --red: #a84e45;
+      --purple: #6d5a8d;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fffaf1 0%, #f6f3ed 45%, #edf2f6 100%);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .site-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0 28px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      font-size: 0.92rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    nav a:hover {
+      color: var(--blue-dark);
+      background: rgba(49, 92, 155, 0.08);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 28px 0 54px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(229, 223, 210, 0.9);
+      border-radius: 32px;
+      padding: clamp(30px, 5vw, 58px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(214, 159, 43, 0.16);
+      color: #815d14;
+      font-weight: 750;
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 7vw, 5.6rem);
+      line-height: 0.95;
+      margin: 0 0 18px;
+      letter-spacing: -0.06em;
+      color: var(--blue-dark);
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .lede {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: #39465a;
+      max-width: 780px;
+      margin: 0 0 28px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 750;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .button.primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 10px 24px rgba(49, 92, 155, 0.28);
+    }
+
+    .button.secondary {
+      background: white;
+      border-color: var(--line);
+      color: var(--blue-dark);
+    }
+
+    .side-panel {
+      border-radius: 32px;
+      padding: 28px;
+      background: var(--blue-dark);
+      color: white;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 420px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .side-panel::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: rgba(214, 159, 43, 0.28);
+      bottom: -70px;
+      right: -65px;
+    }
+
+    .side-panel h2 {
+      font-size: 1.7rem;
+      line-height: 1.12;
+      margin: 0 0 16px;
+      letter-spacing: -0.03em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .side-panel p, .side-panel li {
+      color: rgba(255,255,255,0.84);
+      position: relative;
+      z-index: 1;
+    }
+
+    .side-panel ul {
+      margin: 18px 0 0;
+      padding-left: 20px;
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 3.25rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      margin: 0 0 12px;
+      color: var(--blue-dark);
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      line-height: 1.2;
+      margin: 0 0 9px;
+      color: var(--ink);
+    }
+
+    .section-heading p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(23, 32, 51, 0.07);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      background: rgba(71, 119, 101, 0.1);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 16px;
+    }
+
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      align-items: start;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .step::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--gold);
+      color: white;
+      font-weight: 850;
+      font-size: 1.25rem;
+    }
+
+    .step p { margin: 0; color: var(--muted); }
+
+    .feature-band {
+      background: var(--ink);
+      color: white;
+      border-radius: 32px;
+      padding: clamp(28px, 5vw, 48px);
+      margin: 28px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .feature-band h2 { color: white; }
+    .feature-band p { color: rgba(255,255,255,0.78); }
+
+    .agreements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .agreement {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .starter-box {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .invitation-card {
+      background: linear-gradient(145deg, #ffffff, #fff3d8);
+      border: 1px solid #ead6a8;
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .invitation-card .small-label {
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .invitation-card p {
+      font-size: 1.1rem;
+      color: #39465a;
+      margin: 0;
+    }
+
+    footer {
+      padding: 40px 0 28px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 32px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .starter-box,
+      .grid,
+      .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav { justify-content: flex-start; }
+      .side-panel { min-height: auto; }
+    }
+
+    @media (max-width: 560px) {
+      .site-shell { padding: 18px; }
+      .hero-card, .side-panel, .feature-band { border-radius: 24px; }
+      .step { grid-template-columns: 1fr; }
+      .step::before { width: 44px; height: 44px; }
+      nav a { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Connect to Discover home">
+        <strong>Connect to Discover</strong>
+        <span>A Civic Discovery project</span>
+      </a>
+      <nav aria-label="Page navigation">
+        <a href="#vision">Vision</a>
+        <a href="#plan">The Plan</a>
+        <a href="#gatherings">Gatherings</a>
+        <a href="#games">Games</a>
+        <a href="#guide">Connection Guide</a>
+        <a href="#starter">Starter Kit</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-card">
+          <div class="eyebrow">We The People</div>
+          <h1 id="hero-title">A Network for <span>Civic Discovery</span></h1>
+          <p class="lede">Rebuilding civic connection through curiosity, conversation, community, and structured exploration.</p>
+          <p>Connect to Discover is an emerging idea for helping people move from outrage and disconnection toward orientation, discovery, and constructive civic participation — locally first, then outward into larger communities.</p>
+          <div class="button-row">
+            <a class="button primary" href="#plan">Explore the plan</a>
+            <a class="button secondary" href="#starter">Start locally</a>
+          </div>
+        </div>
+
+        <aside class="side-panel" aria-label="What this project is about">
+          <div>
+            <h2>Not a debate club. Not an outrage feed.</h2>
+            <p>This is a framework for helping people stay connected while exploring difference.</p>
+          </div>
+          <ul>
+            <li>Structured civic gatherings</li>
+            <li>Games for contextualized connection</li>
+            <li>Local issue exploration</li>
+            <li>Representation gap mapping</li>
+            <li>Tools for de-escalation and discovery</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="vision">
+        <div class="section-heading">
+          <span class="tag">The Vision</span>
+          <h2>Civic engagement should feel human.</h2>
+          <p>Many people experience politics through exhaustion, tribal conflict, doom-scrolling, and emotional overload. Civic Discovery asks whether we can build better rituals, tools, and spaces for curiosity, context, and connection.</p>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <h3>Curiosity over certainty</h3>
+            <p>People are invited to explore, compare, ask, and discover — not perform ideological certainty.</p>
+          </article>
+          <article class="card">
+            <h3>Dignity during disagreement</h3>
+            <p>Disagreement is expected. Humiliation is not the goal. The structure should help people stay human to each other.</p>
+          </article>
+          <article class="card">
+            <h3>Local first</h3>
+            <p>Healthy civic life starts in real relationships: friends, neighbors, families, local groups, and communities.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="plan">
+        <div class="section-heading">
+          <span class="tag">The Plan</span>
+          <h2>From idea to local practice.</h2>
+          <p>The first goal is not to build a giant platform. The first goal is to define useful civic interaction patterns that people can actually try.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div>
+              <h3>Define the mission, motivation, and values</h3>
+              <p>Clarify what Civic Discovery is trying to cultivate: curiosity, human connection, representation awareness, constructive civic participation, and healthier ways to stay engaged across difference.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Develop methods and supports</h3>
+              <p>Create simple practices for individuals, hosts, families, friend groups, local organizations, and communities: invitations, prompts, gathering formats, games, and de-escalation tools.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Build local starter kits</h3>
+              <p>Package the idea into printable and shareable tools: conversation cards, hosting guides, issue-ranking activities, story exchange prompts, and representation-gap worksheets.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Test small gatherings</h3>
+              <p>Start with 5–15 people in homes, coffee shops, libraries, parks, community rooms, or casual neighborhood spaces. Learn what creates connection and what creates friction.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Connect local experiments</h3>
+              <p>Let groups share what works, compare issue priorities, and begin building a larger civic discovery network from the ground up.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Grow tools for civic orientation</h3>
+              <p>Future tools could include local issue maps, community concern dashboards, representation-gap trackers, contextual media tools, and civic discovery resource libraries.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="gatherings">
+        <div class="feature-band">
+          <div class="section-heading">
+            <span class="tag">Gatherings</span>
+            <h2>Civic Discovery Nights</h2>
+            <p>A structured gathering experience that feels more like a neighbor party than a political meeting: food, stories, games, curiosity, local concerns, and gentle structure.</p>
+          </div>
+          <div class="agreements" aria-label="Suggested gathering agreements">
+            <span class="agreement">Curiosity outranks certainty</span>
+            <span class="agreement">No humiliation</span>
+            <span class="agreement">Disagreement is participation</span>
+            <span class="agreement">Describe before judging</span>
+            <span class="agreement">Local experience matters</span>
+            <span class="agreement">People over performance</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="games">
+        <div class="section-heading">
+          <span class="tag">Games & Activities</span>
+          <h2>Games for contextualized connection.</h2>
+          <p>These are not debate games. They are structured ways to move from reaction into discovery, perspective, and orientation.</p>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Guess the Consensus</h3>
+            <p>People predict what the room, town, state, or country believes about an issue — then compare predictions to actual responses or known data.</p>
+          </article>
+          <article class="card">
+            <h3>What Matters Most?</h3>
+            <p>Participants rank local or national concerns and compare personal priorities with group priorities and institutional attention.</p>
+          </article>
+          <article class="card">
+            <h3>Perspective Swap</h3>
+            <p>People try to explain what another group may be worried about, then listen for what feels accurate, incomplete, or misunderstood.</p>
+          </article>
+          <article class="card">
+            <h3>Representation Gap Mapping</h3>
+            <p>Compare what people say matters with what local institutions, media, elected officials, or budgets appear to prioritize.</p>
+          </article>
+          <article class="card">
+            <h3>Issue Journey</h3>
+            <p>Start with one lived concern — groceries, housing, schools, safety, water, roads — and explore what systems shape it.</p>
+          </article>
+          <article class="card">
+            <h3>Civic Curiosity Challenge</h3>
+            <p>Invite people to learn how one local decision gets made, talk to someone outside their usual circle, or discover a shared concern.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="guide">
+        <div class="section-heading">
+          <span class="tag">Connection Guide</span>
+          <h2>A guide to interacting across difference.</h2>
+          <p>People enter civic conversations through different doors: stories, systems, skepticism, justice concerns, community protection, frustration, identity, hope, or fear.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>The Story Processor</h3>
+            <p>Connects through lived experience and narrative. Start with stories before statistics.</p>
+          </article>
+          <article class="card">
+            <h3>The Systems Thinker</h3>
+            <p>Looks for patterns, incentives, and structures. Invite mapping, comparison, and causality.</p>
+          </article>
+          <article class="card">
+            <h3>The Community Protector</h3>
+            <p>Cares about stability, belonging, and local continuity. Connect issues to stewardship and real community impact.</p>
+          </article>
+          <article class="card">
+            <h3>The Skeptic</h3>
+            <p>Distrusts official narratives. Avoid overclaiming. Invite exploration and acknowledge uncertainty honestly.</p>
+          </article>
+          <article class="card">
+            <h3>The Justice Activator</h3>
+            <p>Responds to harm and urgency. Validate concern, then channel energy toward orientation and constructive action.</p>
+          </article>
+          <article class="card">
+            <h3>The Exhausted Avoider</h3>
+            <p>Feels overwhelmed or tired of politics. Keep entry points light, local, low-pressure, and relational.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="starter">
+        <div class="section-heading">
+          <span class="tag">Local Starter Kit</span>
+          <h2>Start with one small gathering.</h2>
+          <p>You do not need a large organization. Healthy civic culture can begin around a table, in a yard, at a coffee shop, or among neighbors.</p>
+        </div>
+        <div class="starter-box">
+          <div class="invitation-card">
+            <div class="small-label">Sample Invitation Card</div>
+            <p>We’re hosting a local Civic Discovery gathering — a relaxed space for curiosity, conversation, and exploring civic life together. No debate stage. No pressure. Just people, questions, stories, and discovery.</p>
+          </div>
+          <div class="card">
+            <h3>Suggested first gathering</h3>
+            <p><strong>1.</strong> Food and informal introductions<br>
+              <strong>2.</strong> One simple civic discovery game<br>
+              <strong>3.</strong> One local issue exploration<br>
+              <strong>4.</strong> Reflection: “What surprised you?”<br>
+              <strong>5.</strong> Invite people to help shape the next gathering</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="representation-gaps">
+        <div class="section-heading">
+          <span class="tag">Representation Gaps</span>
+          <h2>What is the distance between public concern and public action?</h2>
+          <p>A representation gap exists when community priorities, lived concerns, or public understanding differ from institutional focus, political action, media attention, or policy outcomes.</p>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <h3>What people experience</h3>
+            <p>Stories, frustrations, hopes, pressures, fears, and local priorities.</p>
+          </article>
+          <article class="card">
+            <h3>What institutions prioritize</h3>
+            <p>Budgets, agendas, votes, public statements, coverage, and policy choices.</p>
+          </article>
+          <article class="card">
+            <h3>Where gaps appear</h3>
+            <p>Places where civic attention, representation, and action may be misaligned.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>Connect to Discover</strong> is an early Civic Discovery concept page. It can begin as a project space within Public Administration Tracker and grow into its own resource center over time.</p>
+    </footer>
+  </div>
+</body>
+</html>
