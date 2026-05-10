@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internal Work | Civic Discovery</title>
+  <meta name="description" content="Practical human guidance for staying open and grounded in civic life." />
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5f6b7a;
+      --soft: #f6f3ed;
+      --paper: #fffaf1;
+      --card: #ffffff;
+      --line: #e5dfd2;
+      --blue: #315c9b;
+      --blue-dark: #213f70;
+      --gold: #d69f2b;
+      --green: #477765;
+      --red: #a84e45;
+      --purple: #6d5a8d;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fffaf1 0%, #f6f3ed 45%, #edf2f6 100%);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .site-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0 28px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      font-size: 0.92rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    nav a:hover {
+      color: var(--blue-dark);
+      background: rgba(49, 92, 155, 0.08);
+    }
+
+    .hero {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(229, 223, 210, 0.9);
+      border-radius: 32px;
+      padding: clamp(30px, 5vw, 58px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      margin: 28px 0 54px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      background: rgba(71, 119, 101, 0.1);
+      padding: 7px 11px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      line-height: 0.98;
+      margin: 0 0 18px;
+      letter-spacing: -0.055em;
+      color: var(--blue-dark);
+      max-width: 920px;
+    }
+
+    .lede {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: #39465a;
+      max-width: 840px;
+      margin: 0 0 24px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 750;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .button.primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 10px 24px rgba(49, 92, 155, 0.28);
+    }
+
+    .button.secondary {
+      background: white;
+      border-color: var(--line);
+      color: var(--blue-dark);
+    }
+
+    section { padding: 42px 0; }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 3.25rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      margin: 0 0 12px;
+      color: var(--blue-dark);
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      line-height: 1.2;
+      margin: 0 0 9px;
+      color: var(--ink);
+    }
+
+    .section-heading p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(23, 32, 51, 0.07);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card ul {
+      color: var(--muted);
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      background: rgba(71, 119, 101, 0.1);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .feature-band {
+      background: var(--ink);
+      color: white;
+      border-radius: 32px;
+      padding: clamp(28px, 5vw, 48px);
+      margin: 28px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .feature-band h2 { color: white; }
+    .feature-band p { color: rgba(255,255,255,0.78); }
+
+    .callout {
+      background: linear-gradient(145deg, #ffffff, #fff3d8);
+      border: 1px solid #ead6a8;
+      border-radius: 26px;
+      padding: clamp(24px, 4vw, 34px);
+      box-shadow: var(--shadow);
+    }
+
+    .prompt-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .prompt {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+      color: #39465a;
+      font-weight: 650;
+    }
+
+    footer {
+      padding: 40px 0 28px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 32px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 880px) {
+      .grid,
+      .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav { justify-content: flex-start; }
+    }
+
+    @media (max-width: 560px) {
+      .site-shell { padding: 18px; }
+      .hero, .feature-band { border-radius: 24px; }
+      nav a { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="connecttodiscover.html" aria-label="Back to Connect to Discover main page">
+        <strong>Connect to Discover</strong>
+        <span>A Civic Discovery project</span>
+      </a>
+      <nav aria-label="Page navigation">
+        <a href="connecttodiscover.html">Main Page</a>
+        <a href="#stress-responses">Stress Responses</a>
+        <a href="#grounding">Grounding</a>
+        <a href="#hope">Hope</a>
+        <a href="#prompts">Prompts</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <span class="eyebrow">Internal Work</span>
+        <h1 id="hero-title">Practical human guidance for staying open and grounded in civic life.</h1>
+        <p class="lede">Civic Discovery is not only about gatherings, games, platforms, or public issues. It also depends on how we show up: with curiosity, emotional awareness, openness, and a willingness to remain human during disagreement.</p>
+        <p>This page is not therapeutic, ideological, corrective, or regulatory. It is a practical support page for people who want to participate in civic life without being swallowed by agitation, overwhelm, withdrawal, or certainty spirals.</p>
+        <div class="button-row">
+          <a class="button primary" href="connecttodiscover.html">Back to Connect to Discover</a>
+          <a class="button secondary" href="#grounding">Explore grounding practices</a>
+        </div>
+      </section>
+
+      <section id="why-this-matters">
+        <div class="section-heading">
+          <span class="tag">Why This Matters</span>
+          <h2>Civic participation is emotional participation.</h2>
+          <p>Modern civic life can be emotionally exhausting. Many people experience anger, fear, agitation, hopelessness, certainty spirals, social pressure, information overload, or emotional withdrawal.</p>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Emotion matters</h3>
+            <p>Civic Discovery is not about suppressing emotion. Emotion often reveals what people care about, what feels threatened, what feels unjust, and what kind of future people hope for.</p>
+          </article>
+          <article class="card">
+            <h3>Emotion needs orientation</h3>
+            <p>Healthy participation may also require reflection, grounding, curiosity, and practices that help us remain connected during disagreement instead of being pulled into escalation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="stress-responses">
+        <div class="section-heading">
+          <span class="tag">Common Patterns</span>
+          <h2>Common civic stress responses.</h2>
+          <p>These are not diagnoses. They are recognizable patterns that can show up when people care deeply, feel threatened, feel overwhelmed, or feel unheard.</p>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Agitation</h3>
+            <p>Feeling reactive, angry, flooded, or ready to argue immediately.</p>
+            <ul>
+              <li>Pause before responding.</li>
+              <li>Ask one clarifying question.</li>
+              <li>Move from reaction toward curiosity.</li>
+              <li>Avoid escalation performance.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Withdrawal</h3>
+            <p>Feeling exhausted, numb, hopeless, or ready to disengage completely.</p>
+            <ul>
+              <li>Reconnect locally.</li>
+              <li>Engage in one small tangible way.</li>
+              <li>Focus on relationships and actions.</li>
+              <li>Limit total doom consumption.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Certainty spirals</h3>
+            <p>Feeling unable to imagine that another perspective may contain meaningful experience.</p>
+            <ul>
+              <li>Explore before concluding.</li>
+              <li>Ask what experience shaped the other view.</li>
+              <li>Separate understanding from agreement.</li>
+              <li>Notice when certainty becomes performance.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Overload</h3>
+            <p>Feeling overwhelmed by constant information, conflict, outrage, or crisis signals.</p>
+            <ul>
+              <li>Reduce reactive media consumption.</li>
+              <li>Choose fewer issues for deeper attention.</li>
+              <li>Prioritize depth over volume.</li>
+              <li>Take breaks without abandoning concern.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Identity threat</h3>
+            <p>Feeling like disagreement threatens belonging, morality, intelligence, dignity, or worth.</p>
+            <ul>
+              <li>Separate people from positions.</li>
+              <li>Protect dignity, yours and theirs.</li>
+              <li>Return to lived experience.</li>
+              <li>Stay relationally grounded when possible.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Defensive performance</h3>
+            <p>Feeling pressure to win, prove, mock, dominate, or represent your whole side.</p>
+            <ul>
+              <li>Lower the temperature.</li>
+              <li>Shift from audience performance to real conversation.</li>
+              <li>Ask what would help understanding.</li>
+              <li>Let the goal be orientation, not victory.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="grounding">
+        <div class="section-heading">
+          <span class="tag">Helpful Responses</span>
+          <h2>Practices for civic grounding.</h2>
+          <p>These practices are simple supports for staying open, steady, and connected while engaging difficult civic questions.</p>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <h3>Stay local sometimes</h3>
+            <p>National politics can feel abstract and overwhelming. Local civic life often feels more human, tangible, and relational.</p>
+          </article>
+          <article class="card">
+            <h3>Curiosity before reaction</h3>
+            <p>Try asking, “What experience may have shaped this perspective?” before asking, “How do I defeat this argument?”</p>
+          </article>
+          <article class="card">
+            <h3>Protect your attention</h3>
+            <p>Not every civic interaction needs immediate engagement. Rest, timing, and boundaries can help participation remain sustainable.</p>
+          </article>
+          <article class="card">
+            <h3>Stay connected to real people</h3>
+            <p>Online environments often flatten humanity. Face-to-face relationships can restore nuance, warmth, and accountability.</p>
+          </article>
+          <article class="card">
+            <h3>Practice slow orientation</h3>
+            <p>Understanding complex civic issues takes time. Orientation is ongoing; no one fully arrives all at once.</p>
+          </article>
+          <article class="card">
+            <h3>Notice escalation patterns</h3>
+            <p>Many online systems reward outrage, certainty, humiliation, and performance. You do not need to mirror those dynamics.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="mindset">
+        <div class="feature-band">
+          <div class="section-heading">
+            <span class="tag">Mindset</span>
+            <h2>A helpful civic posture.</h2>
+            <p>Civic Discovery does not ask people to be perfect, neutral, unemotional, or endlessly patient. It asks whether we can practice healthier ways of showing up together.</p>
+          </div>
+          <div class="grid three">
+            <article class="card">
+              <h3>People are more than positions</h3>
+              <p>A person is never fully represented by one political opinion, vote, fear, mistake, or argument.</p>
+            </article>
+            <article class="card">
+              <h3>Discomfort is not failure</h3>
+              <p>Exploring difference may feel awkward, emotional, or uncertain. That does not mean the conversation has failed.</p>
+            </article>
+            <article class="card">
+              <h3>Small actions matter</h3>
+              <p>One conversation, one invitation, one moment of curiosity, or one local gathering can still matter.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="hope">
+        <div class="section-heading">
+          <span class="tag">Civic Hope</span>
+          <h2>Hope does not require pretending everything is fine.</h2>
+          <p>Hope can emerge from local relationships, meaningful conversations, shared efforts, small acts of participation, and moments of genuine human connection.</p>
+        </div>
+        <div class="callout">
+          <h3>Hope as practice</h3>
+          <p>In Civic Discovery, hope is not passive optimism. It is the practice of looking for places where people can still connect, learn, repair, participate, and build something healthier together.</p>
+        </div>
+      </section>
+
+      <section id="prompts">
+        <div class="section-heading">
+          <span class="tag">Reflection Prompts</span>
+          <h2>Questions for internal orientation.</h2>
+          <p>These prompts can be used personally, in a journal, before a gathering, or as part of a Civic Discovery conversation.</p>
+        </div>
+        <div class="prompt-list">
+          <div class="prompt">What helps me stay curious when I feel reactive?</div>
+          <div class="prompt">What kinds of civic conversations have felt meaningful or hopeful?</div>
+          <div class="prompt">When have I changed my mind about something important?</div>
+          <div class="prompt">What causes me to shut down, withdraw, or become defensive?</div>
+          <div class="prompt">What helps me feel heard?</div>
+          <div class="prompt">What helps me hear someone else without feeling like I am surrendering my values?</div>
+          <div class="prompt">What kind of civic culture do I want to help create?</div>
+        </div>
+      </section>
+
+      <section id="closing">
+        <div class="callout">
+          <h2>The goal is not perfection.</h2>
+          <p>The goal is healthier civic participation together: more curiosity, more dignity, more context, more local connection, and more room for people to remain human while exploring difficult public life.</p>
+          <div class="button-row">
+            <a class="button primary" href="connecttodiscover.html">Return to Connect to Discover</a>
+            <a class="button secondary" href="#top">Back to top</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>Internal Work</strong> is part of the Connect to Discover / Civic Discovery resource space. It supports practical human grounding for healthier civic discovery and engagement.</p>
+    </footer>
+  </div>
+</body>
+</html>
