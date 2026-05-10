@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started | Civic Discovery</title>
+  <meta name="description" content="From interest to action: small practical steps for beginning Civic Discovery locally." />
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5f6b7a;
+      --soft: #f6f3ed;
+      --paper: #fffaf1;
+      --card: #ffffff;
+      --line: #e5dfd2;
+      --blue: #315c9b;
+      --blue-dark: #213f70;
+      --gold: #d69f2b;
+      --green: #477765;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fffaf1 0%, #f6f3ed 45%, #edf2f6 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .site-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0 28px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      font-size: 0.92rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    nav a:hover {
+      color: var(--blue-dark);
+      background: rgba(49, 92, 155, 0.08);
+    }
+
+    .hero {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(229,223,210,0.9);
+      border-radius: 32px;
+      padding: clamp(30px, 5vw, 58px);
+      box-shadow: var(--shadow);
+      margin: 24px 0 50px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      background: rgba(71, 119, 101, 0.1);
+      padding: 7px 11px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5.2rem);
+      line-height: 0.96;
+      margin: 0 0 18px;
+      letter-spacing: -0.06em;
+      color: var(--blue-dark);
+      max-width: 900px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .lede {
+      font-size: clamp(1.08rem, 2vw, 1.34rem);
+      color: #39465a;
+      max-width: 860px;
+      margin: 0 0 26px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 750;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .button.primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 10px 24px rgba(49, 92, 155, 0.28);
+    }
+
+    .button.secondary {
+      background: white;
+      border-color: var(--line);
+      color: var(--blue-dark);
+    }
+
+    section {
+      padding: 40px 0;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      background: rgba(71, 119, 101, 0.1);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      margin: 0 0 12px;
+      color: var(--blue-dark);
+    }
+
+    .section-heading p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .steps {
+      display: grid;
+      gap: 18px;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(22px, 4vw, 30px);
+      box-shadow: 0 10px 28px rgba(23, 32, 51, 0.07);
+    }
+
+    .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--gold);
+      color: white;
+      font-weight: 850;
+      font-size: 1.15rem;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
+
+    .step p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .mini-box {
+      background: rgba(246,243,237,0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+      margin-top: 14px;
+      color: #39465a;
+    }
+
+    .mini-box strong {
+      color: var(--blue-dark);
+    }
+
+    .feature-band {
+      background: var(--ink);
+      color: white;
+      border-radius: 32px;
+      padding: clamp(28px, 5vw, 48px);
+      margin: 40px 0;
+    }
+
+    .feature-band h2 {
+      color: white;
+    }
+
+    .feature-band p {
+      color: rgba(255,255,255,0.8);
+      max-width: 860px;
+    }
+
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .prompt {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 18px;
+      color: white;
+      font-weight: 650;
+    }
+
+    .closing {
+      background: linear-gradient(145deg, #ffffff, #fff3d8);
+      border: 1px solid #ead6a8;
+      border-radius: 28px;
+      padding: clamp(24px, 5vw, 42px);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      padding: 40px 0 28px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 36px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 820px) {
+      .prompt-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .site-shell {
+        padding: 18px;
+      }
+
+      .hero,
+      .feature-band,
+      .closing {
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="connecttodiscover.html" aria-label="Back to Connect to Discover main page">
+        <strong>Connect to Discover</strong>
+        <span>A Civic Discovery project</span>
+      </a>
+
+      <nav aria-label="Page navigation">
+        <a href="connecttodiscover.html">Main Page</a>
+        <a href="#steps">Quick Start</a>
+        <a href="#obstacles">Obstacles</a>
+        <a href="#action">Action Plan</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="eyebrow">Getting Started</span>
+        <h1>From Interest <span>To Action</span></h1>
+        <p class="lede">Civic Discovery does not begin with large organizations or perfect plans. It can begin with one conversation, one invitation, one shared question, one small gathering, or one moment of curiosity.</p>
+        <p>You do not need to do everything at once. You only need to begin somewhere.</p>
+
+        <div class="button-row">
+          <a class="button primary" href="#steps">Start Small</a>
+          <a class="button secondary" href="connecttodiscover.html">Back to Connect to Discover</a>
+        </div>
+      </section>
+
+      <section id="steps">
+        <div class="section-heading">
+          <span class="tag">Quick Start Guide</span>
+          <h2>What can I actually do now?</h2>
+          <p>These are intentionally small steps. Civic Discovery grows through local relationships, recurring participation, and small acts of initiative.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Reach out to one person.</h3>
+            <p>Text, call, or message someone you trust, value, enjoy talking with, or feel curious about reconnecting with.</p>
+            <div class="mini-box">
+              <strong>Possible message:</strong><br><br>
+              “I came across an interesting idea about civic discovery and healthier civic connection. Want to talk about it sometime?”
+            </div>
+            <div class="mini-box">
+              <strong>If now isn’t the right moment:</strong><br><br>
+              Try setting a soft deadline or future check-in. “No worries — let’s make sure we reconnect sometime before next Saturday.”
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Imagine a gathering space.</h3>
+            <p>Where could 3–5 people comfortably gather?</p>
+            <div class="mini-box">
+              Your home or yard?<br>
+              A park?<br>
+              A library room?<br>
+              A coffee shop?<br>
+              A brewery or community space?<br><br>
+              Visualize what would make the gathering feel welcoming, enjoyable, and low-pressure.
+            </div>
+          </article>
+
+          <article class="step" id="obstacles">
+            <div class="step-number">3</div>
+            <h3>Notice the obstacles.</h3>
+            <p>What might prevent you from setting something up?</p>
+            <div class="mini-box">
+              Time?<br>
+              Energy?<br>
+              Fear?<br>
+              Overwhelm?<br>
+              Uncertainty?<br>
+              Hosting concerns?<br>
+              Social awkwardness?<br><br>
+              Sometimes naming obstacles honestly reduces their power.
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">4</div>
+            <h3>Choose a realistic timeline.</h3>
+            <p>When could something small actually happen?</p>
+            <div class="mini-box">
+              Tonight?<br>
+              This weekend?<br>
+              Within one week?<br>
+              Within one month?<br><br>
+              Perfection is not required. Momentum matters more.
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">5</div>
+            <h3>Make a “Who” list.</h3>
+            <p>Who comes to mind?</p>
+            <div class="mini-box">
+              Thoughtful friends?<br>
+              Curious neighbors?<br>
+              Someone community-minded?<br>
+              Someone you disagree with but value?<br>
+              Someone already doing related work?<br>
+              Someone you feel nervous inviting?<br><br>
+              You do not need to invite everyone immediately. Just begin noticing your civic relationship map.
+            </div>
+          </article>
+
+          <article class="step" id="action">
+            <div class="step-number">6</div>
+            <h3>Create a tiny action plan.</h3>
+            <p>Keep it simple and realistic.</p>
+            <div class="mini-box">
+              One conversation.<br>
+              One coffee meetup.<br>
+              One text thread.<br>
+              One mini gathering.<br>
+              One shared issue exploration.<br><br>
+              The goal is not perfection. The goal is beginning.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="feature-band">
+        <div class="section-heading">
+          <span class="tag">A Helpful Reminder</span>
+          <h2>Small is legitimate.</h2>
+          <p>Healthy civic culture has often grown through small gatherings, recurring relationships, local participation, hospitality, and shared curiosity. Something meaningful does not need to begin large in order to matter.</p>
+        </div>
+
+        <div class="prompt-grid">
+          <div class="prompt">What would make a gathering feel enjoyable and welcoming?</div>
+          <div class="prompt">What kind of civic atmosphere would help people stay open and curious?</div>
+          <div class="prompt">What small action feels realistic for you right now?</div>
+          <div class="prompt">What kind of civic culture would you like to help create locally?</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="closing">
+          <h2>Start somewhere.</h2>
+          <p>Civic Discovery is not about waiting for perfect systems, perfect consensus, or perfect certainty. It is about beginning with curiosity, relationships, conversation, and small acts of participation.</p>
+
+          <div class="button-row">
+            <a class="button primary" href="connecttodiscover.html">Return to Connect to Discover</a>
+            <a class="button secondary" href="internal-work-civic-discovery.html">Explore Internal Preparation</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>Getting Started</strong> is part of the Connect to Discover / Civic Discovery resource space. It focuses on small practical actions that help move from interest toward participation.</p>
+    </footer>
+  </div>
+</body>
+</html>
