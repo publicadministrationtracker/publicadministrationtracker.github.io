@@ -452,6 +452,47 @@
       margin: 0 0 18px;
     }
 
+
+    .action-callout {
+      background: linear-gradient(145deg, #ffffff, #fff3d8);
+      border: 1px solid #ead6a8;
+      border-radius: 28px;
+      padding: clamp(24px, 4vw, 38px);
+      box-shadow: var(--shadow);
+      margin-top: 22px;
+    }
+
+    .action-callout p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 820px;
+    }
+
+    .mini-action-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .mini-action {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .mini-action strong {
+      display: block;
+      color: var(--blue-dark);
+      margin-bottom: 6px;
+    }
+
+    .mini-action span {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
     footer {
       padding: 40px 0 28px;
       color: var(--muted);
@@ -465,7 +506,8 @@
       .starter-box,
       .grid,
       .grid.two,
-      .form-grid {
+      .form-grid,
+      .mini-action-grid {
         grid-template-columns: 1fr;
       }
 
@@ -496,6 +538,7 @@
       </a>
       <nav aria-label="Page navigation">
         <a href="#vision">Vision</a>
+        <a href="getting-started.html">Quick Start</a>
         <a href="internal-work.html">Preparation</a>
         <a href="#plan">The Plan</a>
         <a href="#gatherings">Gatherings</a>
@@ -518,7 +561,7 @@
           <p>Connect to Discover is an emerging idea for helping people move from outrage and disconnection toward orientation, discovery, and constructive civic participation — locally first, then outward into larger communities.</p>
           <div class="button-row">
             <a class="button primary" href="#plan">Explore the plan</a>
-            <a class="button secondary" href="#starter">Start locally</a>
+            <a class="button secondary" href="getting-started.html">Quick Start</a>
           </div>
         </div>
 
@@ -629,6 +672,9 @@
               <p>Future tools could include local issue maps, community concern dashboards, representation-gap trackers, contextual media tools, and civic discovery resource libraries.</p>
             </div>
           </article>
+        </div>
+        <div class="button-row" style="justify-content:center; margin-top:28px;">
+          <a class="button secondary" href="getting-started.html">Learn more about getting started</a>
         </div>
       </section>
 
@@ -772,6 +818,9 @@
               <strong>5.</strong> Invite people to help shape the next gathering</p>
           </div>
         </div>
+        <div class="button-row" style="justify-content:center; margin-top:28px;">
+          <a class="button primary" href="getting-started.html">Turn this into a tiny action plan</a>
+        </div>
       </section>
 
 
@@ -797,7 +846,46 @@
         </div>
       </section>
 
+      <section id="quick-start">
+        <div class="action-callout">
+          <span class="tag">Quick Start Guide</span>
+          <h2>What can I actually do now?</h2>
+          <p>Start small. Civic Discovery can begin with one text, one conversation, one place you can imagine gathering, or one tiny plan you can act on.</p>
+          <div class="mini-action-grid">
+            <div class="mini-action">
+              <strong>1. Reach out</strong>
+              <span>Text or call one person and say, “I found something interesting — let’s talk about this.”</span>
+            </div>
+            <div class="mini-action">
+              <strong>2. Picture a place</strong>
+              <span>Imagine where 3–5 people could gather: a home, yard, park, library, coffee shop, or community room.</span>
+            </div>
+            <div class="mini-action">
+              <strong>3. Make it real</strong>
+              <span>Name one obstacle, choose a realistic timeline, and sketch a tiny action plan.</span>
+            </div>
+          </div>
+          <div class="button-row">
+            <a class="button primary" href="getting-started.html">Open the Getting Started page</a>
+            <a class="button secondary" href="internal-work.html">Prepare for the conversation</a>
+          </div>
+        </div>
+      </section>
+
+
       
+      <section id="moment-action">
+        <div class="action-callout">
+          <span class="tag">Do Something Now</span>
+          <h2>What action can I take this moment?</h2>
+          <p>Before filling out the form, consider one immediate step: send one text, write down one gathering place, list one obstacle, or name one person you might invite.</p>
+          <div class="button-row">
+            <a class="button primary" href="getting-started.html">Build a tiny action plan</a>
+            <a class="button secondary" href="internal-work.html">Prepare for civic discovery</a>
+          </div>
+        </div>
+      </section>
+
       <section id="contact">
         <div class="section-heading">
           <span class="tag">Get Involved</span>
@@ -871,11 +959,21 @@
 
           <button class="button primary" type="submit">Share your thoughts</button>
         </form>
+        <div class="action-callout">
+          <span class="tag">More you can do right away</span>
+          <h2>Interested in taking one small next step?</h2>
+          <p>The Getting Started page turns this idea into a short sequence of small actions: reach out, imagine a place, name obstacles, choose a timeline, make a who-list, and create a tiny action plan.</p>
+          <div class="button-row">
+            <a class="button primary" href="getting-started.html">Go to Getting Started</a>
+            <a class="button secondary" href="internal-work.html">Explore Internal Preparation</a>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer>
       <p><strong>Connect to Discover</strong> is an early Civic Discovery concept page. It began as a project space within Public Administration Tracker and may grow into its own resource center over time.</p>
+      <p><a href="getting-started.html">Getting Started</a> · <a href="internal-work.html">Internal Preparation</a> · <a href="#contact">Contact</a></p>
     </footer>
   </div>
 </body>
