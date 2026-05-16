@@ -391,12 +391,12 @@
       <p class="section-intro">
         Use this section as a civic design tool. The goal is not to start with a preferred ideology or party outcome, but to clarify the public objective, diagnose the failure, and identify reforms that can realistically be implemented.
       </p>
-      <div class="worksheet">
+      <form class="worksheet" action="https://formspree.io/f/xbdbrgyj" method="POST">
         <label for="problem">1. What democratic problem are we trying to solve?</label>
-        <textarea id="problem" placeholder="Example: Districts are drawn in ways that protect incumbents instead of fairly representing voters."></textarea>
+        <textarea id="problem" name="democratic_problem" placeholder="Example: Districts are drawn in ways that protect incumbents instead of fairly representing voters."></textarea>
 
         <label for="level">2. What level of government controls the change?</label>
-        <select id="level">
+        <select id="level" name="government_level">
           <option>Local government</option>
           <option>State government</option>
           <option>Federal / national government</option>
@@ -406,21 +406,26 @@
 
         <label>3. Which design objectives matter most?</label>
         <div class="checklist">
-          <label><input type="checkbox" /> Fair representation</label>
-          <label><input type="checkbox" /> Less gerrymandering or district manipulation</label>
-          <label><input type="checkbox" /> Less money dominance in politics</label>
-          <label><input type="checkbox" /> More transparency during the term</label>
-          <label><input type="checkbox" /> Stronger accountability for public officials</label>
-          <label><input type="checkbox" /> Better public participation between elections</label>
-          <label><input type="checkbox" /> More competent, measurable administration</label>
+          <label><input type="checkbox" name="design_objectives" value="Fair representation" /> Fair representation</label>
+          <label><input type="checkbox" name="design_objectives" value="Less gerrymandering or district manipulation" /> Less gerrymandering or district manipulation</label>
+          <label><input type="checkbox" name="design_objectives" value="Less money dominance in politics" /> Less money dominance in politics</label>
+          <label><input type="checkbox" name="design_objectives" value="More transparency during the term" /> More transparency during the term</label>
+          <label><input type="checkbox" name="design_objectives" value="Stronger accountability for public officials" /> Stronger accountability for public officials</label>
+          <label><input type="checkbox" name="design_objectives" value="Better public participation between elections" /> Better public participation between elections</label>
+          <label><input type="checkbox" name="design_objectives" value="More competent, measurable administration" /> More competent, measurable administration</label>
         </div>
 
         <label for="reform">4. What reform tool might address it?</label>
-        <textarea id="reform" placeholder="Example: Independent redistricting commission, ranked-choice voting, public campaign financing, open contracting dashboard, citizen review panel."></textarea>
+        <textarea id="reform" name="proposed_reform" placeholder="Example: Independent redistricting commission, ranked-choice voting, public campaign financing, open contracting dashboard, citizen review panel."></textarea>
 
         <label for="pathway">5. What is the likely pathway?</label>
-        <textarea id="pathway" placeholder="Example: City ordinance, state statute, ballot initiative, administrative rule, public dashboard pilot, federal legislation."></textarea>
-      </div>
+        <textarea id="pathway" name="implementation_pathway" placeholder="Example: City ordinance, state statute, ballot initiative, administrative rule, public dashboard pilot, federal legislation."></textarea>
+
+        <label for="contact">Optional contact or organization</label>
+        <input id="contact" name="contact_info" type="text" placeholder="Name, organization, email, or leave blank" />
+
+        <button class="btn primary" type="submit" style="margin-top:1.5rem; cursor:pointer;">Submit This Reform Idea</button>
+      </form>
     </section>
 
     <section id="objectives">
@@ -514,3 +519,25 @@
         <article class="card step"><h3>Design transparency metrics</h3><p>Decide how the public will know whether the reform improved fairness, representation, accountability, participation, or trust.</p></article>
         <article class="card step"><h3>Build public legitimacy</h3><p>Use plain-language education, public hearings, citizen panels, pilot programs, and nonpartisan evaluation to reduce suspicion and improve adoption.</p></article>
       </div>
+    </section>
+
+    <section id="next-questions">
+      <h2>Questions for Further Exploration</h2>
+      <p class="section-intro">
+        These questions can guide future research, comparison, and model-building.
+      </p>
+      <div class="grid two">
+        <article class="card"><h3>Representation</h3><p>Would multi-member districts, proportional representation, or ranked-choice voting better reflect public preferences while preserving local accountability?</p></article>
+        <article class="card"><h3>Redistricting</h3><p>What combination of independent commissions, map criteria, public data, and court review best limits manipulation?</p></article>
+        <article class="card"><h3>Money in politics</h3><p>Which public financing, disclosure, lobbying, and conflict rules most effectively put constituents ahead of concentrated money?</p></article>
+        <article class="card"><h3>Continuous accountability</h3><p>What should public officials and agencies be required to report during their term, and who should verify it?</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Public Administration Tracker</strong></p>
+    <p>This page is a working civic design framework. It is intended to help compare reform options, clarify implementation pathways, and focus attention on democratic accountability as an ongoing public responsibility — not only an election-season event.</p>
+  </footer>
+</body>
+</html>
