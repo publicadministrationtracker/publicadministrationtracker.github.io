@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Election & Democratic Accountability Reform Framework | Public Administration Tracker</title>
+  <meta name="description" content="A nonpartisan framework for evaluating election reform, representation, redistricting, campaign finance, transparency, and democratic accountability reforms at the local, state, and national level." />
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --panel: #ffffff;
+      --ink: #1f2933;
+      --muted: #5f6b7a;
+      --line: #d8d2c7;
+      --accent: #28536b;
+      --accent-2: #c17f59;
+      --accent-3: #e8f0f2;
+      --good: #3f6f5f;
+      --warn: #8a5a2b;
+      --shadow: 0 18px 40px rgba(31, 41, 51, 0.08);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top left, #fff7e8 0, transparent 28rem), var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); }
+
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 244, 238, 0.92);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 4.5rem 1.25rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent-2);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h1, h2, h3 { line-height: 1.15; margin: 0 0 1rem; }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.9rem);
+      letter-spacing: -0.065em;
+      max-width: 840px;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 3vw, 2.75rem);
+      letter-spacing: -0.045em;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 760px;
+    }
+
+    .hero-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.35rem;
+    }
+
+    .hero-card ul {
+      padding-left: 1.2rem;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.78rem 1.05rem;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid var(--accent);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    main section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 820px;
+      margin-bottom: 1.5rem;
+      font-size: 1.04rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: 0 10px 24px rgba(31, 41, 51, 0.04);
+    }
+
+    .card p, .card li { color: var(--muted); }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--accent);
+      background: var(--accent-3);
+      border-radius: 999px;
+      padding: 0.28rem 0.55rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .worksheet {
+      background: #fffaf1;
+      border: 1px solid #eadcc6;
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .worksheet label {
+      display: block;
+      font-weight: 800;
+      margin: 1rem 0 0.35rem;
+    }
+
+    textarea, input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem;
+      font: inherit;
+      background: white;
+      color: var(--ink);
+    }
+
+    textarea { min-height: 90px; resize: vertical; }
+
+    .checklist {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .checklist label {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      font-weight: 650;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .checklist input { width: auto; margin-top: 0.25rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      padding: 0.85rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: var(--accent-3);
+      color: var(--accent);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .pill {
+      display: inline-block;
+      padding: 0.22rem 0.5rem;
+      border-radius: 999px;
+      background: #f0eee8;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .callout {
+      background: var(--accent);
+      color: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .callout p { color: rgba(255,255,255,0.86); }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 820px) {
+      .hero, .grid, .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      table { font-size: 0.86rem; }
+      th, td { padding: 0.65rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">Public Administration Tracker</a>
+      <div class="nav-links">
+        <a href="#objectives">Objectives</a>
+        <a href="#failures">Failures</a>
+        <a href="#toolbox">Reform Toolbox</a>
+        <a href="#accountability">Accountability</a>
+        <a href="#roadmap">Roadmap</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Democracy System Design</div>
+        <h1>Election & Democratic Accountability Reform Framework</h1>
+        <p>
+          A working guide for imagining stronger representation, fairer elections, reduced money influence, and more continuous accountability in public office — with a focus on reforms that can be pursued without changing the U.S. Constitution.
+        </p>
+        <div class="button-row">
+          <a class="btn primary" href="#worksheet">Start the Design Worksheet</a>
+          <a class="btn secondary" href="#toolbox">View Reform Tools</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="How to use this page">
+        <h3>How to use this resource</h3>
+        <ul>
+          <li>Identify the democratic problem you want to solve.</li>
+          <li>Match that problem to practical reform tools.</li>
+          <li>Separate local, state, and national pathways.</li>
+          <li>Prioritize reforms that improve fairness, transparency, and public accountability now.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="worksheet">
+      <h2>Design Worksheet</h2>
+      <p class="section-intro">
+        Use this section as a civic design tool. The goal is not to start with a preferred ideology or party outcome, but to clarify the public objective, diagnose the failure, and identify reforms that can realistically be implemented.
+      </p>
+      <div class="worksheet">
+        <label for="problem">1. What democratic problem are we trying to solve?</label>
+        <textarea id="problem" placeholder="Example: Districts are drawn in ways that protect incumbents instead of fairly representing voters."></textarea>
+
+        <label for="level">2. What level of government controls the change?</label>
+        <select id="level">
+          <option>Local government</option>
+          <option>State government</option>
+          <option>Federal / national government</option>
+          <option>Multiple levels</option>
+          <option>Not sure yet</option>
+        </select>
+
+        <label>3. Which design objectives matter most?</label>
+        <div class="checklist">
+          <label><input type="checkbox" /> Fair representation</label>
+          <label><input type="checkbox" /> Less gerrymandering or district manipulation</label>
+          <label><input type="checkbox" /> Less money dominance in politics</label>
+          <label><input type="checkbox" /> More transparency during the term</label>
+          <label><input type="checkbox" /> Stronger accountability for public officials</label>
+          <label><input type="checkbox" /> Better public participation between elections</label>
+          <label><input type="checkbox" /> More competent, measurable administration</label>
+        </div>
+
+        <label for="reform">4. What reform tool might address it?</label>
+        <textarea id="reform" placeholder="Example: Independent redistricting commission, ranked-choice voting, public campaign financing, open contracting dashboard, citizen review panel."></textarea>
+
+        <label for="pathway">5. What is the likely pathway?</label>
+        <textarea id="pathway" placeholder="Example: City ordinance, state statute, ballot initiative, administrative rule, public dashboard pilot, federal legislation."></textarea>
+      </div>
+    </section>
+
+    <section id="objectives">
+      <h2>Part I — Core Democratic Design Objectives</h2>
+      <p class="section-intro">
+        A reform proposal should be judged against clear democratic objectives. These objectives can help separate reforms that merely change who wins from reforms that improve the public system itself.
+      </p>
+      <div class="grid">
+        <article class="card"><span class="tag">Representation</span><h3>Fair public representation</h3><p>Constituents should be represented in ways that reflect public preferences, communities, and legitimate minority viewpoints without creating permanent minority rule.</p></article>
+        <article class="card"><span class="tag">Accountability</span><h3>Accountability during the term</h3><p>Officials should remain answerable throughout their term, not only during campaign season. Public performance should be visible, measurable, and reviewable.</p></article>
+        <article class="card"><span class="tag">Trust</span><h3>Transparent public process</h3><p>Citizens should be able to understand how decisions are made, who influences them, and what evidence is used to justify public action.</p></article>
+        <article class="card"><span class="tag">Anti-Capture</span><h3>People ahead of money</h3><p>Campaign finance, lobbying, and conflict-of-interest rules should reduce the ability of concentrated wealth to dominate public decision-making.</p></article>
+        <article class="card"><span class="tag">Responsiveness</span><h3>Stable but responsive institutions</h3><p>Government should be durable enough to function, but responsive enough to correct course when evidence, public needs, or abuses require action.</p></article>
+        <article class="card"><span class="tag">Participation</span><h3>Participation beyond voting</h3><p>Citizens should have meaningful ways to deliberate, provide feedback, review performance, and help shape public priorities between elections.</p></article>
+      </div>
+    </section>
+
+    <section id="failures">
+      <h2>Part II — Current Failure Modes</h2>
+      <p class="section-intro">
+        Reform design should begin with diagnosis. Different failures require different remedies; no single reform fixes every weakness in a democratic system.
+      </p>
+      <div class="grid two">
+        <article class="card"><h3>Representation failures</h3><p>Gerrymandering, winner-take-all distortions, uncompetitive districts, geographic sorting, and primary systems that reward narrow political incentives.</p></article>
+        <article class="card"><h3>Accountability failures</h3><p>Elections are infrequent and media-driven, while day-to-day governance performance is often difficult for ordinary citizens to evaluate.</p></article>
+        <article class="card"><h3>Information failures</h3><p>Citizens face misinformation, low-quality political communication, inaccessible public data, and too few plain-language explanations of public decisions.</p></article>
+        <article class="card"><h3>Financial influence failures</h3><p>Constant fundraising, independent expenditure groups, lobbying opacity, and revolving-door incentives can separate public policy from public interest.</p></article>
+        <article class="card"><h3>Administrative failures</h3><p>Public agencies may lack clear outcome metrics, user-friendly transparency systems, and independent review mechanisms that allow timely correction.</p></article>
+        <article class="card"><h3>Participation failures</h3><p>Many people are only asked to participate at election time, even though public problems require continuous learning, feedback, and adjustment.</p></article>
+      </div>
+    </section>
+
+    <section id="toolbox">
+      <h2>Part III — Reform Toolbox: No Constitutional Amendment Required</h2>
+      <p class="section-intro">
+        These reforms may require statutes, ordinances, ballot initiatives, administrative rules, court compliance, or public funding — but they do not necessarily require changing the U.S. Constitution.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Reform Tool</th>
+            <th>Primary Objective</th>
+            <th>Typical Pathway</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="pill">Local</span></td><td>Ranked-choice voting for city elections</td><td>Broader voter choice; reduced spoiler effects; majority-supported winners</td><td>City charter amendment, ordinance, or local ballot measure where permitted</td></tr>
+          <tr><td><span class="pill">Local</span></td><td>Participatory budgeting</td><td>Direct public input on spending priorities</td><td>City council authorization or administrative pilot</td></tr>
+          <tr><td><span class="pill">Local</span></td><td>Open contracting and spending dashboards</td><td>Transparency, anti-corruption, public trust</td><td>Administrative action, ordinance, procurement policy</td></tr>
+          <tr><td><span class="pill">State</span></td><td>Independent redistricting commissions</td><td>Reduce partisan map manipulation</td><td>State statute, state constitutional amendment, or ballot initiative depending on state law</td></tr>
+          <tr><td><span class="pill">State</span></td><td>Automatic voter registration</td><td>Improve access and reduce administrative barriers</td><td>State statute and agency implementation</td></tr>
+          <tr><td><span class="pill">State</span></td><td>Open or nonpartisan primaries</td><td>Reduce closed primary gatekeeping and broaden candidate accountability</td><td>State statute or ballot measure</td></tr>
+          <tr><td><span class="pill">State</span></td><td>Public campaign financing</td><td>Reduce candidate dependence on large donors</td><td>State statute, local ordinance, or voter-approved funding model</td></tr>
+          <tr><td><span class="pill">Federal</span></td><td>Real-time campaign finance disclosure</td><td>Public visibility into political money</td><td>Federal statute and election agency rulemaking</td></tr>
+          <tr><td><span class="pill">Federal</span></td><td>Congressional stock trading restrictions</td><td>Reduce conflicts of interest</td><td>Federal statute and ethics enforcement rules</td></tr>
+          <tr><td><span class="pill">Federal</span></td><td>Inspector general independence protections</td><td>Strengthen oversight of executive administration</td><td>Federal statute and enforcement procedures</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="accountability">
+      <h2>Part IV — 21st Century Accountability & Transparency Systems</h2>
+      <p class="section-intro">
+        A modern reform framework should make elections less like the only public accountability event and more like one piece of a continuous accountability system.
+      </p>
+      <div class="grid">
+        <article class="card"><h3>Public performance dashboards</h3><p>Track legislative activity, agency outcomes, public spending, constituent service response times, and progress on major commitments.</p></article>
+        <article class="card"><h3>Citizen review panels</h3><p>Use structured, representative panels to review major issues, agency performance, or reform proposals and publish public recommendations.</p></article>
+        <article class="card"><h3>Plain-language bill tracking</h3><p>Translate proposed laws, amendments, fiscal notes, votes, and implementation status into readable public summaries.</p></article>
+        <article class="card"><h3>Ethics and conflict databases</h3><p>Make financial disclosures, recusals, gifts, lobbying contacts, and conflict-of-interest records searchable and understandable.</p></article>
+        <article class="card"><h3>Administrative scorecards</h3><p>Evaluate public agencies by outcomes, service quality, timeliness, equity, budget stewardship, and responsiveness to corrective findings.</p></article>
+        <article class="card"><h3>Public correction loops</h3><p>Create formal processes for citizens, watchdogs, auditors, and journalists to flag errors, delays, abuses, or unmet public commitments.</p></article>
+      </div>
+      <div class="callout">
+        <h3>The core shift</h3>
+        <p>Election reform should not only change how officials are selected. It should also change how public power is monitored, explained, corrected, and held accountable after officials take office.</p>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <h2>Part V — Reform Roadmap</h2>
+      <p class="section-intro">
+        A reform roadmap should clarify who has authority, what legal pathway is available, what resistance is likely, and how the public can evaluate whether the reform actually worked.
+      </p>
+      <div class="steps">
+        <article class="card step"><h3>Define the failure</h3><p>Name the specific democratic failure: unfair districts, low accountability, money influence, inaccessible data, weak ethics enforcement, or poor public participation.</p></article>
+        <article class="card step"><h3>Identify the authority</h3><p>Determine whether the reform belongs at the city, county, state, federal, agency, court, or ballot-initiative level.</p></article>
+        <article class="card step"><h3>Match the reform tool</h3><p>Select a reform that directly addresses the failure. Avoid reforms that sound appealing but do not solve the diagnosed problem.</p></article>
+        <article class="card step"><h3>Check legal feasibility</h3><p>Separate reforms that can be done by ordinance, statute, administrative action, or ballot measure from reforms that require deeper constitutional change.</p></article>
+        <article class="card step"><h3>Design transparency metrics</h3><p>Decide how the public will know whether the reform improved fairness, representation, accountability, participation, or trust.</p></article>
+        <article class="card step"><h3>Build public legitimacy</h3><p>Use plain-language education, public hearings, citizen panels, pilot programs, and nonpartisan evaluation to reduce suspicion and improve adoption.</p></article>
+      </div>
